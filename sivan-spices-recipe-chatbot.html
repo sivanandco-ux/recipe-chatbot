@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sivan Spices Kitchen Helper</title>
+<style>
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7f5f0;
+    --bg-info: #e6f1fb;
+    --text-primary: #2c2c2a;
+    --text-secondary: #5f5e5a;
+    --text-info: #0c447c;
+    --border-tertiary: rgba(44,44,42,0.15);
+    --radius-lg: 12px;
+    --radius-md: 8px;
+    --accent: #0f6e56;
+    --accent-bg: #e1f5ee;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg-secondary);
+    margin: 0;
+    padding: 24px 12px;
+    color: var(--text-primary);
+  }
+  button {
+    font-family: inherit;
+    background: var(--bg-primary);
+    border: 0.5px solid var(--border-tertiary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: var(--text-primary);
+  }
+  button:hover { background: var(--bg-secondary); }
+  button:active { transform: scale(0.98); }
+  input[type="text"] {
+    font-family: inherit;
+    border: 0.5px solid var(--border-tertiary);
+    border-radius: var(--radius-md);
+    padding: 0 12px;
+    height: 36px;
+    font-size: 14px;
+  }
+  #app {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    min-height: 560px;
+    border: 0.5px solid var(--border-tertiary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-primary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  a { color: var(--text-info); }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div style="display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:0.5px solid var(--border-tertiary);background:var(--bg-secondary);">
+    <div>
+      <p style="font-weight:700;font-size:15px;margin:0;">Ask for a recipe</p>
+    </div>
+  </div>
+
+  <div style="padding:10px 18px;border-bottom:0.5px solid var(--border-tertiary);background:#fdfaf5;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+      <p style="font-size:12px;font-weight:600;margin:0;">🛒 Order Sivan Spices</p>
+      <a href="https://www.sivanspices.com" target="_blank" rel="noopener" style="font-size:12px;padding:5px 10px;background:var(--accent-bg);border-radius:8px;text-decoration:none;font-weight:600;color:#0f6e56;">Order at sivanspices.com</a>
+    </div>
+    <div>
+      <p style="font-size:12px;font-weight:600;margin:0 0 6px;">🥘 Missing pantry staples? Order at India Cash &amp; Carry</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        <a href="https://www.indiacashandcarry.com/search?item=tamarind" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Tamarind</a>
+        <a href="https://www.indiacashandcarry.com/search?item=black+mustard+seeds" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Black Mustard seeds</a>
+        <a href="https://www.indiacashandcarry.com/search?item=fenugreek+seeds" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Fenugreek seeds</a>
+        <a href="https://www.indiacashandcarry.com/search?item=toor+dhal" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Toor Dhal</a>
+        <a href="https://www.indiacashandcarry.com/search?item=dried+red+chili" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Dried Red Chili</a>
+        <a href="https://www.indiacashandcarry.com/search?item=sesame+oil" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Sesame Oil</a>
+        <a href="https://www.indiacashandcarry.com/search?item=desi+ghee" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Desi Ghee</a>
+        <a href="https://www.indiacashandcarry.com/search?item=asafoetida+powder" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Asafoetida Powder</a>
+        <a href="https://www.indiacashandcarry.com/search?item=curry+leaves" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Curry Leaves</a>
+        <a href="https://www.indiacashandcarry.com/search?item=cilantro" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Cilantro</a>
+        <a href="https://www.indiacashandcarry.com/search?item=morton+iodized+salt" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Morton Iodized Salt</a>
+        <a href="https://www.indiacashandcarry.com/search?item=lijjat+papad" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Lijjat Papad</a>
+        <a href="https://www.indiacashandcarry.com/search?item=appalam" target="_blank" rel="noopener" style="font-size:11px;padding:4px 8px;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);border-radius:6px;text-decoration:none;color:var(--text-primary);">Appalam</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="thread" style="flex:1;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:14px;"></div>
+
+  <div style="display:flex;gap:8px;padding:6px 18px 8px;flex-wrap:wrap;border-top:0.5px solid var(--border-tertiary);">
+    <button onclick="ask('pepper rasam')" style="font-size:12px;padding:6px 10px;">Pepper rasam</button>
+    <button onclick="ask('onion sambar')" style="font-size:12px;padding:6px 10px;">Onion sambar</button>
+    <button onclick="ask('lemon rasam')" style="font-size:12px;padding:6px 10px;">Lemon rasam</button>
+    <button onclick="ask('vatha kuzhambu')" style="font-size:12px;padding:6px 10px;">Vatha kuzhambu</button>
+    <button onclick="ask('okra sambar')" style="font-size:12px;padding:6px 10px;">Okra sambar (video)</button>
+  </div>
+
+  <form id="composer" style="display:flex;gap:8px;padding:12px 18px;border-top:0.5px solid var(--border-tertiary);">
+    <input id="input" type="text" placeholder="Type a recipe name or ask a question..." style="flex:1;" autocomplete="off" />
+    <button type="submit" style="padding:0 16px;">Send</button>
+  </form>
+</div>
+
+<script>
+
+
+const EMBEDDED_RECORDINGS = {
+  'pepper rasam': 'https://sivanandco-ux.github.io/recipe-chatbot/pepper-rasam.mp3',
+  'onion sambar': 'https://sivanandco-ux.github.io/recipe-chatbot/onion-sambar.mp3',
+  'lemon rasam': 'https://sivanandco-ux.github.io/recipe-chatbot/lemon-rasam.mp3',
+  'onion vatha kuzhambu': 'https://sivanandco-ux.github.io/recipe-chatbot/onion-vatha-kuzhambu.mp3',
+  'garlic vatha kuzhambu': 'https://sivanandco-ux.github.io/recipe-chatbot/garlic-vatha-kuzhambu.mp3',
+  'okra sambar': 'https://sivanandco-ux.github.io/recipe-chatbot/okra-sambar.mp3',
+};
+
+const RECIPES = {
+  "pepper rasam": {
+    name: "Pepper Rasam (Milagu Rasam)",
+    trait: "No tomato. Black pepper and cumin forward. Traditionally used as a comforting remedy for colds and congestion.",
+    pairing: "Traditionally served with steamed rice and a side vegetable stir-fry (poriyal), plus crisp papad. It also stands alone as a warming soup, especially when you have a cold.",
+    base: 4,
+    ingredients: [
+      {n:"Sivan Spices Rasam Powder", a:1, u:"tbsp"},
+      {n:"whole black pepper", a:1, u:"tsp"},
+      {n:"cumin seeds", a:1, u:"tsp"},
+      {n:"toor dhal", a:1, u:"tbsp"},
+      {n:"dried red chilies", a:3, u:""},
+      {n:"tamarind paste", a:1, u:"tsp"},
+      {n:"warm water (for tamarind)", a:0.5, u:"cup"},
+      {n:"water", a:2, u:"cup"},
+      {n:"additional water", a:2, u:"cup"},
+      {n:"salt", a:1, u:"tsp"},
+      {n:"ghee", a:1, u:"tsp"},
+      {n:"mustard seeds", a:0.5, u:"tsp"},
+      {n:"curry leaves", a:8, u:""}
+    ],
+    steps: [
+      "Extract tamarind juice by dissolving the tamarind paste in warm water as usual.",
+      "Combine the tamarind water, salt, and 2 cups of water in a pot. Boil for 3 to 4 minutes.",
+      "Coarsely crush together the black pepper, cumin seeds, toor dhal, and red chilies.",
+      "Add the Rasam Powder to the pot along with the crushed spices. Simmer for 5 minutes.",
+      "Add the remaining 2 cups of water and turn off the heat once the rasam turns frothy.",
+      "Heat ghee, crackle the mustard seeds, add curry leaves, and pour the tempering over the rasam."
+    ]
+  },
+  "onion sambar": {
+    name: "Onion Sambar",
+    trait: "Pearl onions or regular onion as the main vegetable. A simple, everyday sambar.",
+    pairing: "A classic with steamed rice, idli, or dosa. Also pairs well with a dry vegetable poriyal on the side for a complete everyday meal.",
+    base: 4,
+    ingredients: [
+      {n:"Sivan Spices Sambar Powder", a:2.5, u:"tbsp"},
+      {n:"pigeon peas (toor dal), cooked until mushy", a:0.5, u:"cup"},
+      {n:"pearl onions, peeled and halved", a:12, u:""},
+      {n:"large tomato", a:1, u:""},
+      {n:"tamarind paste", a:1, u:"tbsp"},
+      {n:"warm water (for tamarind)", a:0.5, u:"cup"},
+      {n:"oil or ghee", a:1, u:"tbsp"},
+      {n:"mustard seeds", a:0.5, u:"tsp"},
+      {n:"fenugreek seeds", a:0.5, u:"tsp"},
+      {n:"curry leaves", a:8, u:""},
+      {n:"salt", a:1, u:"tsp"}
+    ],
+    steps: [
+      "Heat oil, then crackle the mustard and fenugreek seeds.",
+      "Add the onions and saute until slightly translucent and softened.",
+      "Add the chopped or pureed tomato to the pan.",
+      "Add the tamarind juice, Sambar Powder, and enough water to reach sambar consistency. Simmer for 3 minutes.",
+      "Stir in the cooked dal, adjust consistency, and simmer a few more minutes until the onions are fully tender.",
+      "Garnish with curry leaves and cilantro."
+    ]
+  },
+  "lemon rasam": {
+    name: "Lemon Rasam",
+    trait: "Lemon juice instead of tamarind for tang. Lighter and brighter than tomato or tamarind-forward rasams.",
+    pairing: "Best with plain steamed rice, letting the bright citrus flavor come through. Also lovely on its own as a light soup on warmer days.",
+    base: 4,
+    ingredients: [
+      {n:"Sivan Spices Rasam Powder", a:1, u:"tbsp"},
+      {n:"lemon, juiced (added at the end, off heat)", a:1, u:""},
+      {n:"large tomato", a:1, u:""},
+      {n:"water", a:2, u:"cup"},
+      {n:"salt", a:1, u:"tsp"},
+      {n:"ghee", a:1, u:"tsp"},
+      {n:"mustard seeds", a:0.5, u:"tsp"},
+      {n:"curry leaves", a:8, u:""},
+      {n:"hing (asafoetida)", a:1, u:"pinch"},
+      {n:"cilantro, for garnish", a:1, u:"tbsp"}
+    ],
+    steps: [
+      "Boil the water with the chopped or pureed tomato and salt.",
+      "Add the Rasam Powder. Simmer for 3 minutes and turn off the heat once frothy.",
+      "Let the rasam cool slightly, then stir in the fresh lemon juice off the heat. Boiling lemon juice can turn it bitter.",
+      "Heat ghee, crackle mustard seeds and curry leaves, and pour the tempering over the rasam.",
+      "Garnish with cilantro and curry leaves."
+    ]
+  },
+  "onion vatha kuzhambu": {
+    name: "Onion Vatha Kuzhambu",
+    trait: "Thicker in consistency, no lentil. Keeps in the fridge for up to a week.",
+    pairing: "Pairs best with hot steamed rice and a dollop of ghee, plus a toasted or fried papad on the side to balance the tang and heat. Also good with idli or dosa.",
+    base: 4,
+    ingredients: [
+      {n:"Sivan Spices Sambar Powder", a:2.5, u:"tbsp"},
+      {n:"pearl onions, peeled and halved", a:12, u:""},
+      {n:"large tomato", a:1, u:""},
+      {n:"tamarind paste", a:1, u:"tbsp"},
+      {n:"warm water (for tamarind)", a:0.5, u:"cup"},
+      {n:"oil or ghee", a:1, u:"tbsp"},
+      {n:"mustard seeds", a:0.5, u:"tsp"},
+      {n:"fenugreek seeds", a:0.5, u:"tsp"},
+      {n:"curry leaves", a:8, u:""},
+      {n:"salt", a:1, u:"tsp"},
+      {n:"water", a:1.5, u:"cup"}
+    ],
+    steps: [
+      "Heat oil, then crackle the mustard and fenugreek seeds.",
+      "Add the onions and saute until slightly translucent and softened.",
+      "Add the chopped or pureed tomato to the pan.",
+      "Add the tamarind juice, Sambar Powder, and the water.",
+      "Simmer for a few more minutes until the onions are fully tender.",
+      "Garnish with curry leaves."
+    ]
+  },
+  "garlic vatha kuzhambu": {
+    name: "Garlic Vatha Kuzhambu",
+    trait: "Thicker in consistency, no lentil. Traditionally considered helpful for digestion.",
+    pairing: "Serve with hot steamed rice and ghee, alongside a mild vegetable side to offset the spice. A toasted papad rounds out the meal nicely.",
+    base: 4,
+    ingredients: [
+      {n:"Sivan Spices Sambar Powder", a:2.5, u:"tbsp"},
+      {n:"garlic cloves, peeled", a:12, u:""},
+      {n:"large tomato", a:1, u:""},
+      {n:"tamarind paste", a:1, u:"tbsp"},
+      {n:"warm water (for tamarind)", a:0.5, u:"cup"},
+      {n:"oil or ghee", a:1, u:"tbsp"},
+      {n:"mustard seeds", a:0.5, u:"tsp"},
+      {n:"fenugreek seeds", a:0.5, u:"tsp"},
+      {n:"curry leaves", a:8, u:""},
+      {n:"salt", a:1, u:"tsp"},
+      {n:"water", a:1.5, u:"cup"}
+    ],
+    steps: [
+      "Heat oil, then crackle the mustard and fenugreek seeds.",
+      "Add the garlic and saute until slightly translucent and softened.",
+      "Add the chopped or pureed tomato to the pan.",
+      "Add the tamarind juice, Sambar Powder, and the water.",
+      "Simmer for a few more minutes until the garlic is fully tender.",
+      "Garnish with curry leaves."
+    ]
+  },
+  "okra sambar": {
+    name: "Okra Sambar",
+    trait: "Sambar made with okra (vendakkai). Full written recipe coming soon \u2014 watch the video for now.",
+    pairing: "Pairs well with steamed rice, idli, or dosa, like most sambar varieties.",
+    pending: true,
+    videoId: "RgQ5FynrkBA",
+    base: 4,
+    ingredients: [],
+    steps: []
+  }
+};
+const ALIASES = {
+  "vatha kuzhambu": "onion vatha kuzhambu",
+  "garlic kuzhambu": "garlic vatha kuzhambu",
+  "milagu rasam": "pepper rasam",
+  "sambar": "onion sambar",
+  "rasam": "pepper rasam"
+};
+
+const thread = document.getElementById('thread');
+let voices = [];
+
+function loadVoices(){ voices = speechSynthesis.getVoices(); }
+loadVoices();
+if (typeof speechSynthesis !== 'undefined') speechSynthesis.onvoiceschanged = loadVoices;
+
+function bubble(html, fromUser){
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'display:flex;' + (fromUser ? 'justify-content:flex-end;' : 'justify-content:flex-start;');
+  const b = document.createElement('div');
+  b.style.cssText = 'max-width:88%;padding:10px 13px;border-radius:12px;font-size:14px;line-height:1.6;' +
+    (fromUser ? 'background:var(--bg-info);color:var(--text-info);' : 'background:var(--bg-secondary);');
+  b.innerHTML = html;
+  wrap.appendChild(b);
+  thread.appendChild(wrap);
+  thread.scrollTop = thread.scrollHeight;
+  return b;
+}
+
+function fmtAmt(a){
+  const r = Math.round(a*100)/100;
+  return r % 1 === 0 ? r.toString() : r.toFixed(2).replace(/0+$/,'').replace(/\.$/,'');
+}
+
+const DB_NAME = 'sivan-spices-recordings';
+const STORE_NAME = 'recordings';
+let dbInstance = null;
+
+function openDB(){
+  return new Promise((resolve, reject) => {
+    if (dbInstance) { resolve(dbInstance); return; }
+    if (!('indexedDB' in window)){
+      reject(new Error('IndexedDB not supported in this browser.'));
+      return;
+    }
+    const request = indexedDB.open(DB_NAME, 1);
+    request.onupgradeneeded = function(e){
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains(STORE_NAME)){
+        db.createObjectStore(STORE_NAME);
+      }
+    };
+    request.onsuccess = function(e){
+      dbInstance = e.target.result;
+      resolve(dbInstance);
+    };
+    request.onerror = function(e){
+      reject(e.target.error);
+    };
+  });
+}
+
+async function saveRecordingAsync(key, base64){
+  try {
+    const db = await openDB();
+    return await new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, 'readwrite');
+      tx.objectStore(STORE_NAME).put(base64, key);
+      tx.oncomplete = () => resolve(true);
+      tx.onerror = () => reject(tx.error);
+    });
+  } catch(e){
+    console.error('Recording save failed:', e);
+    return false;
+  }
+}
+
+async function getRecordingAsync(key){
+  try {
+    const db = await openDB();
+    return await new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, 'readonly');
+      const req = tx.objectStore(STORE_NAME).get(key);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => reject(req.error);
+    });
+  } catch(e){
+    console.error('Recording lookup failed:', e);
+    return null;
+  }
+}
+
+async function deleteRecordingAsync(key){
+  try {
+    const db = await openDB();
+    return await new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, 'readwrite');
+      tx.objectStore(STORE_NAME).delete(key);
+      tx.oncomplete = () => resolve(true);
+      tx.onerror = () => reject(tx.error);
+    });
+  } catch(e){
+    return false;
+  }
+}
+
+// In-memory cache of which keys have recordings, so card rendering (sync) can check it.
+// Populated on load and updated immediately after any save/delete.
+let recordingPresence = {};
+
+async function refreshRecordingPresence(){
+  try {
+    const db = await openDB();
+    const keys = await new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, 'readonly');
+      const req = tx.objectStore(STORE_NAME).getAllKeys();
+      req.onsuccess = () => resolve(req.result || []);
+      req.onerror = () => reject(req.error);
+    });
+    recordingPresence = {};
+    keys.forEach(k => { recordingPresence[k] = true; });
+  } catch(e){
+    recordingPresence = {};
+  }
+}
+
+function hasRecording(key){
+  return !!recordingPresence[key];
+}
+
+function blobToBase64(blob){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+let activeRecorder = null;
+let activeChunks = [];
+let activeMicStream = null;
+let activeRecordingKey = null;
+
+window.downloadRecording = async function(key){
+  const base64 = await getRecordingAsync(key);
+  if (!base64){
+    alert('No recording found for this recipe yet.');
+    return;
+  }
+  const safeNamePart = key.replace(/\s+/g,'-');
+  const a = document.createElement('a');
+  a.href = base64;
+  a.download = 'sivan-spices-' + safeNamePart + '.webm';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+};
+
+window.toggleRecord = async function(key, cardId){
+  const btn = document.getElementById(cardId+'-recordbtn');
+  const status = document.getElementById(cardId+'-recstatus');
+
+  if (activeRecordingKey === key){
+    activeRecorder.stop();
+    return;
+  }
+  if (activeRecordingKey){
+    alert('Please finish the current recording first.');
+    return;
+  }
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    alert('This browser does not support microphone recording on this page (it may need to be opened directly, not inside an embedded preview).');
+    return;
+  }
+  try {
+    activeMicStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  } catch(e){
+    alert('Could not access the microphone. Please allow microphone access and try again.');
+    return;
+  }
+  activeChunks = [];
+  activeRecorder = new MediaRecorder(activeMicStream);
+  activeRecorder.ondataavailable = e => { if (e.data.size > 0) activeChunks.push(e.data); };
+  activeRecorder.onstop = async function(){
+    const blob = new Blob(activeChunks, { type: 'audio/webm' });
+    const base64 = await blobToBase64(blob);
+    const ok = await saveRecordingAsync(key, base64);
+    activeMicStream.getTracks().forEach(t => t.stop());
+    activeRecordingKey = null;
+    if (ok){
+      recordingPresence[key] = true;
+      btn.textContent = 'Re-record';
+      if (status){
+        status.textContent = 'Using your recorded voice';
+        status.style.color = '';
+      }
+      const downloadBtn = document.getElementById(cardId+'-downloadbtn');
+      if (downloadBtn) downloadBtn.style.display = '';
+    } else {
+      btn.textContent = hasRecording(key) ? 'Re-record' : 'Record';
+      if (status){
+        status.textContent = 'Recording failed to save \u2014 please try again';
+        status.style.color = '#a32d2d';
+      }
+      alert('Sorry, the recording could not be saved. Please try recording again.');
+    }
+  };
+  activeRecorder.start();
+  activeRecordingKey = key;
+  btn.textContent = 'Stop';
+  if (status){
+    status.textContent = 'Recording... click stop when finished';
+    status.style.color = '#a32d2d';
+  }
+};
+
+function recipeCard(key){
+  const r = RECIPES[key];
+  const cardId = 'card-' + Math.random().toString(36).slice(2,8);
+  let html = '<div id="'+cardId+'" style="background:var(--bg-primary);border:0.5px solid var(--border-tertiary);border-radius:12px;padding:14px 16px;margin-top:4px;">';
+  html += '<p style="font-weight:600;font-size:15px;margin:0 0 4px;">'+r.name+'</p>';
+  html += '<p style="font-size:12px;color:var(--text-secondary);margin:0 0 12px;">'+r.trait+'</p>';
+  if (r.videoId){
+    html += '<div style="position:relative;width:100%;padding-top:56.25%;margin-bottom:12px;border-radius:8px;overflow:hidden;background:#000;">';
+    html += '<iframe src="https://www.youtube.com/embed/'+r.videoId+'" title="'+r.name+' video" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    html += '</div>';
+  }
+
+  html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">';
+  html += '<span style="font-size:12px;color:var(--text-secondary);">Servings</span>';
+  html += '<button type="button" onclick="adjustServ(\''+key+'\',\''+cardId+'\',-1)" style="width:26px;height:26px;padding:0;font-size:14px;">-</button>';
+  html += '<span id="'+cardId+'-serv" style="font-size:13px;font-weight:600;min-width:14px;text-align:center;">'+r.base+'</span>';
+  html += '<button type="button" onclick="adjustServ(\''+key+'\',\''+cardId+'\',1)" style="width:26px;height:26px;padding:0;font-size:14px;">+</button>';
+  html += '<div style="margin-left:auto;">';
+  html += '<button type="button" onclick="speakRecipe(\''+key+'\',\''+cardId+'\')" style="font-size:12px;padding:6px 10px;display:flex;align-items:center;gap:6px;">🔊 <span id="'+cardId+'-speakbtn">Read aloud</span></button>';
+  html += '</div>';
+  html += '</div>';
+
+  if (r.pending){
+    html += '<div style="background:#fff8e6;border:0.5px solid #e8d9a8;border-radius:8px;padding:10px 12px;margin-bottom:12px;font-size:13px;color:var(--text-secondary);">Full written ingredients and steps for this recipe are coming soon. Watch the video above in the meantime.</div>';
+  } else {
+    html += '<div style="display:flex;align-items:center;justify-content:space-between;margin:0 0 6px;">';
+    html += '<p style="font-size:13px;font-weight:600;margin:0;color:var(--text-secondary);">Ingredients</p>';
+    html += '<button type="button" onclick="copyShoppingList(\''+key+'\',\''+cardId+'\')" style="font-size:11px;padding:4px 8px;display:flex;align-items:center;gap:4px;">📋 <span id="'+cardId+'-copybtn">Copy shopping list</span></button>';
+    html += '</div>';
+    html += '<ul id="'+cardId+'-ing" style="font-size:13px;margin:0 0 12px;padding-left:18px;line-height:1.8;"></ul>';
+
+    html += '<p style="font-size:13px;font-weight:600;margin:0 0 6px;color:var(--text-secondary);">Steps</p>';
+    html += '<ol style="font-size:13px;margin:0;padding-left:18px;line-height:1.8;">';
+    r.steps.forEach(s => { html += '<li>'+s+'</li>'; });
+    html += '</ol>';
+  }
+
+  html += '<div style="margin-top:12px;padding-top:10px;border-top:0.5px solid var(--border-tertiary);">';
+  html += '<p style="font-size:13px;font-weight:600;margin:0 0 4px;color:var(--text-secondary);">Traditionally paired with</p>';
+  html += '<p style="font-size:13px;margin:0;line-height:1.6;">'+r.pairing+'</p>';
+  html += '</div>';
+
+  html += '<div style="margin-top:12px;padding-top:10px;border-top:0.5px solid var(--border-tertiary);">';
+  html += '<a href="https://www.sivanspices.com" target="_blank" rel="noopener" style="font-size:12px;padding:5px 10px;background:var(--accent-bg);border-radius:8px;text-decoration:none;font-weight:600;color:#0f6e56;display:inline-block;">🛒 Order Sivan Spices at sivanspices.com</a>';
+  html += '</div>';
+
+  html += '</div>';
+  return {html, cardId};
+}
+
+function renderIngredients(key, cardId, mult){
+  const r = RECIPES[key];
+  const list = document.getElementById(cardId+'-ing');
+  if (!list) return;
+  list.innerHTML = r.ingredients.map(i => {
+    const amt = fmtAmt(i.a * mult);
+    const label = amt+(i.u ? ' '+i.u : '')+' '+i.n;
+    const isSivanProduct = /sivan spices/i.test(i.n);
+    let shopLink;
+    if (isSivanProduct){
+      shopLink = '<a href="https://www.sivanspices.com" target="_blank" rel="noopener" style="font-size:11px;margin-left:8px;white-space:nowrap;">Shop</a>';
+    } else {
+      const query = encodeURIComponent(i.n.replace(/,.*$/, '').trim());
+      shopLink = '<a href="https://www.indiacashandcarry.com/search?item='+query+'" target="_blank" rel="noopener" style="font-size:11px;margin-left:8px;white-space:nowrap;color:var(--text-secondary);">Shop</a>';
+    }
+    return '<li>'+label+shopLink+'</li>';
+  }).join('');
+}
+
+window.copyShoppingList = function(key, cardId){
+  const r = RECIPES[key];
+  const btn = document.getElementById(cardId+'-copybtn');
+  const servEl = document.getElementById(cardId+'-serv');
+  const serv = servEl ? parseInt(servEl.textContent) : r.base;
+  const mult = serv / r.base;
+
+  let text = r.name + ' \u2014 shopping list (' + serv + ' servings)\n';
+  text += r.ingredients.map(i => {
+    const amt = fmtAmt(i.a * mult);
+    return '- ' + amt + (i.u ? ' ' + i.u : '') + ' ' + i.n;
+  }).join('\n');
+  text += '\n\nShop these at India Cash & Carry: https://www.indiacashandcarry.com';
+
+  function showCopied(){
+    if (!btn) return;
+    const original = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = original; }, 1800);
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(showCopied).catch(() => {
+      fallbackCopy(text, showCopied);
+    });
+  } else {
+    fallbackCopy(text, showCopied);
+  }
+};
+
+function fallbackCopy(text, onSuccess){
+  try {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    onSuccess();
+  } catch(e){
+    alert('Could not copy automatically. Please select and copy the ingredients manually.');
+  }
+}
+
+window.adjustServ = function(key, cardId, delta){
+  const r = RECIPES[key];
+  const el = document.getElementById(cardId+'-serv');
+  let serv = parseInt(el.textContent) + delta;
+  if (serv < 1) serv = 1;
+  if (serv > 20) serv = 20;
+  el.textContent = serv;
+  renderIngredients(key, cardId, serv / r.base);
+};
+
+let activePlaybackAudio = null;
+
+window.speakRecipe = async function(key, cardId){
+  const btn = document.getElementById(cardId+'-speakbtn');
+  // Check embedded recordings first, then fall back to IndexedDB user recordings
+  const recording = EMBEDDED_RECORDINGS[key] || await getRecordingAsync(key);
+
+  // If a recording exists, play it back directly
+  if (recording){
+    if (activePlaybackAudio && !activePlaybackAudio.paused){
+      activePlaybackAudio.pause();
+      activePlaybackAudio = null;
+      btn.textContent = 'Read aloud';
+      return;
+    }
+    activePlaybackAudio = new Audio(recording);
+    activePlaybackAudio.onended = () => { btn.textContent = 'Read aloud'; };
+    activePlaybackAudio.onerror = () => {
+      btn.textContent = 'Read aloud';
+      alert('Could not play the recording. It may be corrupted \u2014 try re-recording.');
+    };
+    btn.textContent = 'Stop';
+    activePlaybackAudio.play();
+    return;
+  }
+
+  // Otherwise fall back to synthetic voice
+  if (typeof speechSynthesis === 'undefined'){
+    alert('Sorry, this browser does not support text-to-speech.');
+    return;
+  }
+  const r = RECIPES[key];
+  if (speechSynthesis.speaking){
+    speechSynthesis.cancel();
+    btn.textContent = 'Read aloud';
+    return;
+  }
+  const servEl = document.getElementById(cardId+'-serv');
+  const serv = servEl ? parseInt(servEl.textContent) : r.base;
+  const mult = serv / r.base;
+  const v = voices.find(v => /rishi/i.test(v.name)) || voices.find(v => /en-in/i.test(v.lang)) || voices[0];
+
+  const segments = [];
+  segments.push(r.name + '.');
+  segments.push('Ingredients: ' + r.ingredients.map(i => fmtAmt(i.a*mult) + (i.u ? ' '+i.u : '') + ' ' + i.n).join(', ') + '.');
+  r.steps.forEach((s, idx) => {
+    segments.push('Step ' + (idx+1) + '. ' + s);
+  });
+  segments.push('Traditionally paired with: ' + r.pairing);
+
+  let i = 0;
+  btn.textContent = 'Stop';
+  function speakNext(){
+    if (i >= segments.length){
+      btn.textContent = 'Read aloud';
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(segments[i]);
+    if (v) utter.voice = v;
+    utter.rate = 0.92;
+    utter.onend = function(){
+      i++;
+      setTimeout(speakNext, 280);
+    };
+    utter.onerror = function(){ btn.textContent = 'Read aloud'; };
+    speechSynthesis.speak(utter);
+  }
+  speakNext();
+};
+
+function findRecipe(query){
+  const q = query.toLowerCase().trim();
+  if (RECIPES[q]) return q;
+  if (ALIASES[q]) return ALIASES[q];
+  for (const key of Object.keys(RECIPES)){
+    if (q.includes(key) || key.includes(q)) return key;
+  }
+  for (const [alias, key] of Object.entries(ALIASES)){
+    if (q.includes(alias)) return key;
+  }
+  if (q.includes('onion') && q.includes('kuzhambu')) return 'onion vatha kuzhambu';
+  if (q.includes('garlic') && q.includes('kuzhambu')) return 'garlic vatha kuzhambu';
+  if (q.includes('onion') && q.includes('sambar')) return 'onion sambar';
+  if (q.includes('lemon')) return 'lemon rasam';
+  if (q.includes('pepper')) return 'pepper rasam';
+  return null;
+}
+
+window.ask = function(text){
+  document.getElementById('input').value = text;
+  document.getElementById('composer').dispatchEvent(new Event('submit', {cancelable:true}));
+};
+
+document.getElementById('composer').addEventListener('submit', function(e){
+  e.preventDefault();
+  const input = document.getElementById('input');
+  const text = input.value.trim();
+  if (!text) return;
+  bubble(text.replace(/</g,'&lt;'), true);
+  input.value = '';
+
+  const key = findRecipe(text);
+  setTimeout(() => {
+    if (key){
+      bubble('Here is the '+RECIPES[key].name+'. You can adjust servings or tap "Read aloud" to hear it.', false);
+      const {html, cardId} = recipeCard(key);
+      const cardWrap = document.createElement('div');
+      cardWrap.style.cssText = 'padding:0 4px;';
+      cardWrap.innerHTML = html;
+      thread.appendChild(cardWrap);
+      renderIngredients(key, cardId, 1);
+      thread.scrollTop = thread.scrollHeight;
+    } else {
+      bubble('I have six recipes so far: pepper rasam, onion sambar, lemon rasam, onion vatha kuzhambu, garlic vatha kuzhambu, and okra sambar. Try asking for one of those by name.', false);
+    }
+  }, 150);
+});
+
+refreshRecordingPresence().then(function(){
+  bubble('Hi! I am the Sivan Spices kitchen helper. Ask me for a recipe, like "pepper rasam" or "onion sambar", and I will walk you through it. I can also read it out loud while you cook.', false);
+});
+</script>
+
+</body>
+</html>
