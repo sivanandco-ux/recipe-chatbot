@@ -408,7 +408,7 @@ const ICC = "India Cash & Carry";
 const RECIPES = {
   pepper_rasam: {
     name: "Pepper Rasam",
-    audio: "audio/pepper-rasam.mp3",
+    audio: "pepper-rasam.mp3",
     ingredients: [{"q": "1 tsp", "n": "whole black pepper"}, {"q": "1 tsp", "n": "cumin seeds"}, {"q": "1 tbsp", "n": "toor dal"}, {"q": "3", "n": "dried red chillies"}, {"q": "1 tsp", "n": "tamarind paste (in 1/2 cup warm water)"}, {"q": "2 cups", "n": "water"}, {"q": "to taste", "n": "salt"}, {"q": "1 tsp", "n": "ghee (for tempering)"}, {"q": "", "n": "mustard seeds"}, {"q": "", "n": "curry leaves"}],
     tagline: "No tomato, all warmth — black pepper and cumin forward. The one grandmothers reach for when someone's fighting a cold.",
     mix: { label: "Start with", name: "Sivan Spices Rasam & Sambar Powder", url: SHOP.rasamSambar },
@@ -424,7 +424,7 @@ const RECIPES = {
   },
   onion_sambar: {
     name: "Onion Sambar",
-    audio: "audio/onion-sambar.mp3",
+    audio: "onion-sambar.mp3",
     ingredients: [{"q": "1/2 cup", "n": "toor dal (pigeon peas)"}, {"q": "10–12", "n": "small pearl onions, halved (or 1 large onion, sliced)"}, {"q": "1 large", "n": "tomato"}, {"q": "1 tbsp", "n": "tamarind paste (in 1/2 cup warm water)"}, {"q": "1 tbsp", "n": "oil or ghee"}, {"q": "1/2 tsp", "n": "mustard seeds"}, {"q": "1/2 tsp", "n": "fenugreek seeds"}, {"q": "", "n": "curry leaves"}, {"q": "", "n": "cilantro"}, {"q": "to taste", "n": "salt"}],
     tagline: "The everyday sambar — sweet little pearl onions doing all the work. Goes with everything.",
     mix: { label: "Start with", name: "Sivan Spices Rasam & Sambar Powder", url: SHOP.rasamSambar },
@@ -440,7 +440,7 @@ const RECIPES = {
   },
   lemon_rasam: {
     name: "Lemon Rasam",
-    audio: "audio/lemon-rasam.mp3",
+    audio: "lemon-rasam.mp3",
     ingredients: [{"q": "1", "n": "lemon (juice, added off heat)"}, {"q": "1 large", "n": "tomato"}, {"q": "2 cups", "n": "water"}, {"q": "to taste", "n": "salt"}, {"q": "1 tsp", "n": "ghee (for tempering)"}, {"q": "", "n": "mustard seeds"}, {"q": "", "n": "curry leaves"}, {"q": "1 pinch", "n": "hing (asafoetida)"}, {"q": "", "n": "cilantro (to garnish)"}],
     tagline: "Lighter and brighter — lemon instead of tamarind. The one you want when you need something to wake you up.",
     mix: { label: "Start with", name: "Sivan Spices Rasam & Sambar Powder", url: SHOP.rasamSambar },
@@ -454,7 +454,7 @@ const RECIPES = {
   },
   onion_vatha_kuzhambu: {
     name: "Onion Vatha Kuzhambu",
-    audio: "audio/onion-vatha-kuzhambu.mp3",
+    audio: "onion-vatha-kuzhambu.mp3",
     ingredients: [{"q": "10–12", "n": "small pearl onions, halved (or 1 large onion, sliced)"}, {"q": "1 large", "n": "tomato"}, {"q": "1 tbsp", "n": "tamarind paste (in 1/2 cup warm water)"}, {"q": "1 tbsp", "n": "oil or ghee"}, {"q": "1/2 tsp", "n": "mustard seeds"}, {"q": "1/2 tsp", "n": "fenugreek seeds"}, {"q": "1.5 cups", "n": "water"}, {"q": "", "n": "curry leaves"}, {"q": "to taste", "n": "salt"}],
     tagline: "Thicker, tangier, no lentils — and it keeps in the fridge for a week. A little goes a long way over rice.",
     mix: { label: "Start with", name: "Sivan Spices Rasam & Sambar Powder", url: SHOP.rasamSambar },
@@ -469,7 +469,7 @@ const RECIPES = {
   },
   garlic_vatha_kuzhambu: {
     name: "Garlic Vatha Kuzhambu",
-    audio: "audio/garlic-vatha-kuzhambu.mp3",
+    audio: "garlic-vatha-kuzhambu.mp3",
     ingredients: [{"q": "10–12", "n": "garlic cloves, peeled"}, {"q": "1 large", "n": "tomato"}, {"q": "1 tbsp", "n": "tamarind paste (in 1/2 cup warm water)"}, {"q": "1 tbsp", "n": "oil or ghee"}, {"q": "1/2 tsp", "n": "mustard seeds"}, {"q": "1/2 tsp", "n": "fenugreek seeds"}, {"q": "1.5 cups", "n": "water"}, {"q": "", "n": "curry leaves"}, {"q": "to taste", "n": "salt"}],
     tagline: "Same thick, tangy base but built on whole garlic — warming, and a known friend to an unhappy stomach.",
     mix: { label: "Start with", name: "Sivan Spices Rasam & Sambar Powder", url: SHOP.rasamSambar },
@@ -679,19 +679,41 @@ function copyList(key, btn){
 
 
 function wireAudioPlayer(){
-  const audio = document.getElementById('vpAudio');
-  if(!audio) return;
-  const play = document.getElementById('vpPlay');
-  const scrub = document.getElementById('vpScrub');
-  const cur = document.getElementById('vpCur');
-  const dur = document.getElementById('vpDur');
+  // There may be several recipe panels in the scrollback. Wire the LAST one
+  // (the one the user is looking at), not the first that getElementById returns.
+  const audios = document.querySelectorAll('#vpAudio');
+  const plays  = document.querySelectorAll('#vpPlay');
+  const scrubs = document.querySelectorAll('#vpScrub');
+  const curs   = document.querySelectorAll('#vpCur');
+  const durs   = document.querySelectorAll('#vpDur');
+  if(!audios.length) return;
+  const audio = audios[audios.length-1];
+  const play  = plays[plays.length-1];
+  const scrub = scrubs[scrubs.length-1];
+  const cur   = curs[curs.length-1];
+  const dur   = durs[durs.length-1];
+
   const fmt = s => { s=Math.floor(s||0); return Math.floor(s/60)+":"+String(s%60).padStart(2,'0'); };
 
+  if(audio.duration) dur.textContent = fmt(audio.duration);
   audio.addEventListener('loadedmetadata', ()=>{ dur.textContent = fmt(audio.duration); });
+
   play.onclick = ()=>{
-    if(audio.paused){ audio.play(); play.textContent="❚❚"; }
-    else { audio.pause(); play.textContent="▶"; }
+    // pause any other players first
+    document.querySelectorAll('#vpAudio').forEach(a=>{ if(a!==audio) a.pause(); });
+    if(audio.paused){
+      const p = audio.play();
+      if(p && p.catch){ p.then(()=>{ play.textContent="❚❚"; }).catch(err=>{
+        console.error("audio play blocked:", err);
+        play.textContent="▶";
+      }); }
+      else { play.textContent="❚❚"; }
+    } else {
+      audio.pause(); play.textContent="▶";
+    }
   };
+  audio.addEventListener('play',  ()=>{ play.textContent="❚❚"; });
+  audio.addEventListener('pause', ()=>{ play.textContent="▶"; });
   audio.addEventListener('timeupdate', ()=>{
     cur.textContent = fmt(audio.currentTime);
     if(audio.duration) scrub.value = Math.round(audio.currentTime/audio.duration*1000);
