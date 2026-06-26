@@ -192,6 +192,30 @@
         "Heat 1 tsp ghee, crackle mustard seeds, add curry leaves and cilantro, and pour over. Serve hot over rice with ghee, or sip it warm."
       ]
     }
+    ,
+"beetroot_sambar": {
+  "name": "Beetroot Sambar",
+  "audio": null,
+  "tagline": "A test recipe — earthy beetroot in a tangy sambar base. Delete this after testing.",
+  "mix": {
+    "label": "Start with",
+    "name": "Sivan Spices Rasam & Sambar Powder",
+    "url": "https://sivan-co-2.myshopify.com/products/rasam-powder?variant=47665454514417"
+  },
+  "ingredients": [
+    {"q": "1/2 cup",  "n": "toor dal"},
+    {"q": "2 medium", "n": "beetroot, peeled and cubed"},
+    {"q": "1 large",  "n": "tomato"},
+    {"q": "1 tbsp",   "n": "tamarind paste"},
+    {"q": "to taste", "n": "salt"}
+  ],
+  "pantry": ["toor dal","beetroot","tomato","tamarind","mustard seeds","curry leaves","salt"],
+  "steps": [
+    "Pressure-cook the toor dal until mushy. Set aside.",
+    "Add the beetroot, tomato, tamarind, Sambar Powder and water. Simmer until beetroot is tender.",
+    "Stir in the dal, adjust consistency, and temper with mustard seeds and curry leaves."
+  ]
+}
 
   },
 
