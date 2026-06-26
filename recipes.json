@@ -1,0 +1,225 @@
+{
+  "shop": {
+    "rasamSambar":    "https://sivan-co-2.myshopify.com/products/rasam-powder?variant=47665454514417",
+    "dosaiGunpowder": "https://sivan-co-2.myshopify.com/products/rasam-powder-copy?variant=47666994839793",
+    "paruppuPodi":    "https://sivan-co-2.myshopify.com/products/paruppu-rice-mix-aka-dhal-podi-paruppu-podi?variant=47736585289969",
+    "curryLeaf":      "https://sivan-co-2.myshopify.com/products/sesame-rice-mix-copy-copy?variant=47736598724849",
+    "garamMasala":    "https://sivan-co-2.myshopify.com/products/garam-masala?variant=47828652556529"
+  },
+
+  "recipes": {
+
+    "pepper_rasam": {
+      "name": "Pepper Rasam",
+      "audio": "https://sivanandco-ux.github.io/recipe-chatbot/pepper-rasam.mp3",
+      "tagline": "No tomato, all warmth — black pepper and cumin forward. The one grandmothers reach for when someone's fighting a cold.",
+      "mix": {
+        "label": "Start with",
+        "name": "Sivan Spices Rasam & Sambar Powder",
+        "url": "https://sivan-co-2.myshopify.com/products/rasam-powder?variant=47665454514417"
+      },
+      "ingredients": [
+        {"q": "1 tsp",      "n": "whole black pepper"},
+        {"q": "1 tsp",      "n": "cumin seeds"},
+        {"q": "1 tbsp",     "n": "toor dal"},
+        {"q": "3",          "n": "dried red chillies"},
+        {"q": "1 tsp",      "n": "tamarind paste (in 1/2 cup warm water)"},
+        {"q": "2 cups",     "n": "water"},
+        {"q": "to taste",   "n": "salt"},
+        {"q": "1 tsp",      "n": "ghee (for tempering)"},
+        {"q": "",           "n": "mustard seeds"},
+        {"q": "",           "n": "curry leaves"}
+      ],
+      "pantry": ["whole black pepper","cumin seeds","toor dal","dried red chilli","tamarind","ghee","mustard seeds","curry leaves","salt"],
+      "steps": [
+        "First, soak a small piece of tamarind in warm water and squeeze out the juice — about half a cup. Say 'next' when that's ready.",
+        "Coarsely crush together 1 tsp black pepper, 1 tsp cumin, 1 tbsp toor dal and 3 dried red chillies. Don't powder it — you want it rough. Say 'next'.",
+        "In a pot, combine the tamarind water, salt, and 2 cups of water. Let it boil 3–4 minutes. Say 'next' once it's boiling.",
+        "Add 1 tbsp of the Rasam Powder and your crushed pepper-cumin mix. Let it simmer about 5 minutes — your kitchen will start to smell amazing. Say 'next'.",
+        "Turn off the heat the moment it goes frothy on top — don't let it roll into a hard boil, that flattens the flavor. Say 'next'.",
+        "Last thing: heat 1 tsp ghee, crackle the mustard seeds, drop in curry leaves, and pour that over the rasam. Done — serve it hot over rice, or sip it as is."
+      ]
+    },
+
+    "onion_sambar": {
+      "name": "Onion Sambar",
+      "audio": "https://sivanandco-ux.github.io/recipe-chatbot/onion-sambar.mp3",
+      "tagline": "The everyday sambar — sweet little pearl onions doing all the work. Goes with everything.",
+      "mix": {
+        "label": "Start with",
+        "name": "Sivan Spices Rasam & Sambar Powder",
+        "url": "https://sivan-co-2.myshopify.com/products/rasam-powder?variant=47665454514417"
+      },
+      "ingredients": [
+        {"q": "1/2 cup",  "n": "toor dal (pigeon peas)"},
+        {"q": "10–12",    "n": "small pearl onions, halved (or 1 large onion, sliced)"},
+        {"q": "1 large",  "n": "tomato"},
+        {"q": "1 tbsp",   "n": "tamarind paste (in 1/2 cup warm water)"},
+        {"q": "1 tbsp",   "n": "oil or ghee"},
+        {"q": "1/2 tsp",  "n": "mustard seeds"},
+        {"q": "1/2 tsp",  "n": "fenugreek seeds"},
+        {"q": "",         "n": "curry leaves"},
+        {"q": "",         "n": "cilantro"},
+        {"q": "to taste", "n": "salt"}
+      ],
+      "pantry": ["toor dal","pearl onions","tomato","tamarind","oil","mustard seeds","fenugreek seeds","curry leaves","cilantro","salt"],
+      "steps": [
+        "Pressure-cook half a cup of toor dal till it's soft and mushy — set it aside. Say 'next' when it's done.",
+        "Heat 1 tbsp oil, crackle 1/2 tsp mustard seeds and 1/2 tsp fenugreek seeds. Say 'next' when they sputter.",
+        "Add 10–12 halved pearl onions and sauté until they turn translucent and soft. Say 'next'.",
+        "Add one pureed or finely chopped tomato and cook it down a couple minutes. Say 'next'.",
+        "Now add your tamarind juice, 2.5 tbsp Sambar Powder, and enough water for a sambar consistency. Simmer about 3 minutes. Say 'next'.",
+        "Stir in the cooked dal, adjust the water, and simmer until the onions are fully tender. Finish with curry leaves and cilantro. Serve hot with idli, dosa, or rice and ghee."
+      ]
+    },
+
+    "lemon_rasam": {
+      "name": "Lemon Rasam",
+      "audio": "https://sivanandco-ux.github.io/recipe-chatbot/lemon-rasam.mp3",
+      "tagline": "Lighter and brighter — lemon instead of tamarind. The one you want when you need something to wake you up.",
+      "mix": {
+        "label": "Start with",
+        "name": "Sivan Spices Rasam & Sambar Powder",
+        "url": "https://sivan-co-2.myshopify.com/products/rasam-powder?variant=47665454514417"
+      },
+      "ingredients": [
+        {"q": "1",        "n": "lemon (juice, added off heat)"},
+        {"q": "1 large",  "n": "tomato"},
+        {"q": "2 cups",   "n": "water"},
+        {"q": "to taste", "n": "salt"},
+        {"q": "1 tsp",    "n": "ghee (for tempering)"},
+        {"q": "",         "n": "mustard seeds"},
+        {"q": "",         "n": "curry leaves"},
+        {"q": "1 pinch",  "n": "hing (asafoetida)"},
+        {"q": "",         "n": "cilantro (to garnish)"}
+      ],
+      "pantry": ["lemon","tomato","ghee","mustard seeds","curry leaves","hing","cilantro","salt"],
+      "steps": [
+        "Boil 2 cups of water with one pureed or finely chopped tomato and a little salt. Say 'next' when it's boiling.",
+        "Add 1 tbsp Rasam Powder and simmer about 3 minutes, until it turns frothy — then turn off the heat. Say 'next'.",
+        "Important bit: let it cool a minute, then squeeze in the juice of one lemon OFF the heat. Boiling lemon turns it bitter, so don't rush this. Say 'next'.",
+        "Heat 1 tsp ghee, crackle mustard seeds, curry leaves and a pinch of hing, and pour it over. Garnish with cilantro. Serve hot over rice — or sip it warm."
+      ]
+    },
+
+    "onion_vatha_kuzhambu": {
+      "name": "Onion Vatha Kuzhambu",
+      "audio": "https://sivanandco-ux.github.io/recipe-chatbot/onion-vatha-kuzhambu.mp3",
+      "tagline": "Thicker, tangier, no lentils — and it keeps in the fridge for a week. A little goes a long way over rice.",
+      "mix": {
+        "label": "Start with",
+        "name": "Sivan Spices Rasam & Sambar Powder",
+        "url": "https://sivan-co-2.myshopify.com/products/rasam-powder?variant=47665454514417"
+      },
+      "ingredients": [
+        {"q": "10–12",    "n": "small pearl onions, halved (or 1 large onion, sliced)"},
+        {"q": "1 large",  "n": "tomato"},
+        {"q": "1 tbsp",   "n": "tamarind paste (in 1/2 cup warm water)"},
+        {"q": "1 tbsp",   "n": "oil or ghee"},
+        {"q": "1/2 tsp",  "n": "mustard seeds"},
+        {"q": "1/2 tsp",  "n": "fenugreek seeds"},
+        {"q": "1.5 cups", "n": "water"},
+        {"q": "",         "n": "curry leaves"},
+        {"q": "to taste", "n": "salt"}
+      ],
+      "pantry": ["pearl onions","tomato","tamarind","oil","mustard seeds","fenugreek seeds","curry leaves","salt"],
+      "steps": [
+        "Heat 1 tbsp oil and crackle 1/2 tsp mustard seeds and 1/2 tsp fenugreek seeds. Say 'next' when they pop.",
+        "Add 10–12 halved pearl onions and sauté till soft and translucent. Say 'next'.",
+        "Add one pureed or chopped tomato and cook it down. Say 'next'.",
+        "Add the tamarind juice, 2.5 tbsp Sambar Powder, and 1.5 cups of water. Say 'next'.",
+        "Simmer until the onions are fully tender and the kuzhambu thickens — it should coat the back of a spoon. Garnish with curry leaves. Serve over hot rice with ghee."
+      ]
+    },
+
+    "garlic_vatha_kuzhambu": {
+      "name": "Garlic Vatha Kuzhambu",
+      "audio": "https://sivanandco-ux.github.io/recipe-chatbot/garlic-vatha-kuzhambu.mp3",
+      "tagline": "Same thick, tangy base but built on whole garlic — warming, and a known friend to an unhappy stomach.",
+      "mix": {
+        "label": "Start with",
+        "name": "Sivan Spices Rasam & Sambar Powder",
+        "url": "https://sivan-co-2.myshopify.com/products/rasam-powder?variant=47665454514417"
+      },
+      "ingredients": [
+        {"q": "10–12",    "n": "garlic cloves, peeled"},
+        {"q": "1 large",  "n": "tomato"},
+        {"q": "1 tbsp",   "n": "tamarind paste (in 1/2 cup warm water)"},
+        {"q": "1 tbsp",   "n": "oil or ghee"},
+        {"q": "1/2 tsp",  "n": "mustard seeds"},
+        {"q": "1/2 tsp",  "n": "fenugreek seeds"},
+        {"q": "1.5 cups", "n": "water"},
+        {"q": "",         "n": "curry leaves"},
+        {"q": "to taste", "n": "salt"}
+      ],
+      "pantry": ["garlic","tomato","tamarind","oil","mustard seeds","fenugreek seeds","curry leaves","salt"],
+      "steps": [
+        "Heat 1 tbsp oil and crackle 1/2 tsp mustard seeds and 1/2 tsp fenugreek seeds. Say 'next' when they pop.",
+        "Add 10–12 peeled garlic cloves and sauté until they soften and turn golden at the edges. Say 'next'.",
+        "Add one pureed or chopped tomato and cook it down. Say 'next'.",
+        "Add the tamarind juice, 2.5 tbsp Sambar Powder, and 1.5 cups of water. Say 'next'.",
+        "Simmer until the garlic is fully tender and the kuzhambu thickens. Garnish with curry leaves. Serve over hot rice with ghee."
+      ]
+    },
+
+    "tomato_rasam": {
+      "name": "Tomato Rasam",
+      "audio": null,
+      "tagline": "The classic everyone knows — ripe tomatoes, a little dal for body, tamarind for tang. Pure comfort over rice.",
+      "mix": {
+        "label": "Start with",
+        "name": "Sivan Spices Rasam & Sambar Powder",
+        "url": "https://sivan-co-2.myshopify.com/products/rasam-powder?variant=47665454514417"
+      },
+      "ingredients": [
+        {"q": "1 tsp",    "n": "tamarind paste (in 1/2 cup warm water)"},
+        {"q": "1/4 cup",  "n": "toor dal (pigeon peas)"},
+        {"q": "1–2 large","n": "ripe tomatoes, pureed or chopped"},
+        {"q": "2 cups",   "n": "water"},
+        {"q": "to taste", "n": "salt"},
+        {"q": "1 tsp",    "n": "ghee (for tempering)"},
+        {"q": "",         "n": "mustard seeds"},
+        {"q": "",         "n": "curry leaves"},
+        {"q": "",         "n": "cilantro"}
+      ],
+      "pantry": ["tamarind","toor dal","tomatoes","ghee","mustard seeds","curry leaves","cilantro","salt"],
+      "steps": [
+        "Soak a small piece of tamarind in warm water and squeeze out about half a cup of juice. Say 'next'.",
+        "Pressure-cook 1/4 cup toor dal until mushy and set aside. Say 'next' when it's ready.",
+        "Combine the tamarind water, salt, 1–2 pureed ripe tomatoes and 2 cups of water. Boil 3–4 minutes. Say 'next'.",
+        "Add 1 tbsp Rasam Powder and simmer about 5 minutes. Say 'next'.",
+        "Stir in the cooked dal, adjust the consistency with a little water, and simmer a couple more minutes — turn off the heat once it's frothy. Say 'next'.",
+        "Heat 1 tsp ghee, crackle mustard seeds, add curry leaves and cilantro, and pour over. Serve hot over rice with ghee, or sip it warm."
+      ]
+    }
+
+  },
+
+  "pairings": {
+    "dosa": {
+      "name": "Dosai Gun Powder",
+      "url": "https://sivan-co-2.myshopify.com/products/rasam-powder-copy?variant=47666994839793",
+      "line": "Dosa's all about what you dip it in. A little of our Dosai Gun Powder mixed with sesame oil on the side turns a plain dosa into the real thing."
+    },
+    "idli": {
+      "name": "Dosai Gun Powder",
+      "url": "https://sivan-co-2.myshopify.com/products/rasam-powder-copy?variant=47666994839793",
+      "line": "Soft idli loves a punchy podi. Our Dosai Gun Powder with a drizzle of oil is the classic pairing."
+    },
+    "coconut rice": {
+      "name": "Lentil Mix (Paruppu Podi)",
+      "url": "https://sivan-co-2.myshopify.com/products/paruppu-rice-mix-aka-dhal-podi-paruppu-podi?variant=47736585289969",
+      "line": "Coconut rice is lovely on its own, but a spoon of our Paruppu Podi over hot rice on the side makes it a full meal."
+    },
+    "curd rice": {
+      "name": "Lentil Mix (Paruppu Podi)",
+      "url": "https://sivan-co-2.myshopify.com/products/paruppu-rice-mix-aka-dhal-podi-paruppu-podi?variant=47736585289969",
+      "line": "Curd rice and a little Paruppu Podi is a match made in heaven — want me to add it to your list?"
+    },
+    "lemon rice": {
+      "name": "Curry Leaf Mix",
+      "url": "https://sivan-co-2.myshopify.com/products/sesame-rice-mix-copy-copy?variant=47736598724849",
+      "line": "Our Curry Leaf Mix stirred into lemon rice gives it a deep, toasty edge — worth a try."
+    }
+  }
+}
